@@ -2,37 +2,85 @@
  (Use Static data member and Static member function) */
  
 #include<iostream>
+
 using namespace std;
-class student
+
+class Student
 {
 	private:
-	   int roll_no;
-	   char student_name;
-	
-	public:
-		char student_Class;
 		
-	void roll_no()
-	{
-	   	cout<<"\n Enter the roll no of a student";
-	    cin>>roll no;	
-	}
-	void student_name()
-	{
-		cout<<"\n Enter the name of the student";
-		cin>>name;
-	}
-	void student_Class()
-	{
-		cout<<"\n Enter the class of a student";
-		cin>>Class
-	}
-
-	   
+		int Roll_no;
+		string Student_name;
+		int class_s;
+		
+		static int Student_cnt;
+		
+	public:
+		
+		Student()
+		{
+			Roll_no = 0;
+			Student_name = "unknown";
+			class_s =0;
+		}
+		
+		void accept()
+		{
+			Student_cnt++;
+			
+			cout<<"Enter Roll Number : ";
+			cin>>Roll_no;
+			
+			cout<<"Enter The Name : ";
+			cin>>Student_name;
+			
+			cout<<"Enter the Class : ";
+			cin>>class_s;
+		}
+		
+		void display()
+		{
+			cout<<Roll_no<<"\t"<<Student_name<<"\t"<<class_s <<" th"<<endl;			
+		}
+		
+		static void show()
+		{
+			cout<<"\nTotal Student : "<<Student_cnt<<endl;
+		}
+		
+		~Student()
+		{
+			
+		}
 };
+
+int Student::Student_cnt=0;
+
+
 int main()
 {
-	int roll_no;
-	char student_name;
-	char student_Class;
+	int n;
+	
+	cout<<"How many information of student : ";
+	cin>>n;
+	
+	Student ob[n];
+	
+	for(int i =0;i<n;i++)
+	{
+		ob[i].accept();
+	}
+	
+	cout<<"\nRoll No"<<"\t"<<"Name"<<"\t"<<"Class"<<endl;
+	cout<<"-----------------------------------"<<endl;
+	
+	for(int i =0;i<n;i++)
+	{
+		ob[i].display();
+	}
+	
+	Student::show();
+
+	return 0;
 }
+	

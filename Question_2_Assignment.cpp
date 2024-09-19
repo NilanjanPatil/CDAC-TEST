@@ -3,37 +3,48 @@ Write a program to print the area of two rectangles having sides (4,5) and (5,8)
 with a function named 'Area' which returns the area. Length */
 
 #include<iostream>
+
 using namespace std;
-class rectange
+
+class Rectangle
 {
 	private:
-		int lenghth, breadth;
+	 
+	float length;
+	float breath;
+	
 	public:
-		void rectangle_1 ()
+		
+		Rectangle(float a=0.0,float b=0.0)
 		{
-			cout<<"\n Enter the lenghth of the rectangle_1";
-			cin>>lenghth;
-			cout<<"\n Enter the breadth of the rectangle_1";
-			cin>>breadth;
-		}
-		public:
-		void rectangle_2 ()
-		{
-			cout<<"\n Enter the lenghth of the rectangle_2";
-			cin>>lenghth;
-			cout<<"\n Enter the breadth of the rectangle_2";
-			cin>>breadth;
+			length = a;
+			breath = b;
 		}
 		
+		float Area()
+		{
+			return length * breath;
+		}
+		
+		~Rectangle()
+		{
+			
+		}
 };
+
 int main()
 {
-	int lenghth, breadth;
+	Rectangle R1(4,5);
 	
-	cout<<"\n Enter the lenghth of the rectangle";
-	cin>>lenghth;
-	cout<<"\n Enter the breadth of the rectangle";
-	cin>>breadth;
-	cout<<"\n The area of the rectangle is "<< l*b;
-}
+	Rectangle R2(5,8);
+	
+	float a = R1.Area();
+	
+	cout<<"Area of R1 : "<<a<<endl;
+	
+	float b = R2.Area();
+	
+	cout<<"Area of R2 : "<<b<<endl;
+	
+	return 0;
  
